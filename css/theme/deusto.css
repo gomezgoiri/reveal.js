@@ -142,3 +142,11 @@ body {
 .reveal .emph {
   color: #375dc2;
   font-weight: bold; }
+
+#presentable-toc ol > li ol {
+  visibility: hidden;
+  height: 0px;
+  margin: 0px; }
+
+#presentable-toc ol > li .index {
+  visibility: hidden; }

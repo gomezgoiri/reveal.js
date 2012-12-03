@@ -18,6 +18,9 @@
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
+		<!-- To add a table of contents -->
+		<link rel="stylesheet" href="plugin/presentable/presentable.css">
+
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
 			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
@@ -29,23 +32,29 @@
 	</head>
 
 	<body>
-
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 
-				<section id="frontpage">
-					<h1>La web semántica<br />de las cosas</h1>
-					<p>
-						<small>Creado por <a href="http://aitor.gomezgoiri.net">Aitor Gómez-Goiri</a> / <a href="http://twitter.com/gomezgoiri">@gomezgoiri</a></small>
-					</p>
-					<img style="border: 0; box-shadow: none; margin: 50px 0 0 0;" src="images/logo_plain.png" alt="Logo of the University of Deusto">
-					<br />
-					<p>
-						<small>Universidad de Deusto <br/>
-						<a href="http://www.deusto.es">www.deusto.es</a>
-					</small>
+				<section>
+					<section>
+						<h1>La web semántica <br /> de las cosas</h1>
+						<p>
+							<small>Creado por <a href="http://aitor.gomezgoiri.net">Aitor Gómez-Goiri</a> / <a href="http://twitter.com/gomezgoiri">@gomezgoiri</a></small>
+						</p>
+						<img style="border: 0; box-shadow: none; margin: 50px 0 0 0;" src="images/logo_plain.png" alt="Logo of the University of Deusto">
+						<br />
+						<p>
+							<small>Universidad de Deusto <br/>
+								<a href="http://www.deusto.es">www.deusto.es</a>
+							</small>
+						</p>
+					</section>
+					<section>
+						<h2>Índice</h2>
+						<nav id="presentable-toc" class="revealjs"></nav>
+					</section>
 				</section>
 
 				<section>
@@ -111,7 +120,7 @@
 					</section>
 				</section>
 
-				<section id="themes">
+				<section>
 					<h2>Themes</h2>
 					<p>
 						Reveal.js comes with a few themes built in: <br>
@@ -215,7 +224,8 @@
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/presentable/presentable.js', callback: function() { window.presentable.toc({framework: "revealjs"}); } }
 					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});

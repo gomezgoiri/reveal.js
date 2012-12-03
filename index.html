@@ -35,12 +35,17 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 
-				<section>
-					<h1>La web semántica de las cosas</h1>
-					<h3>IoT, WoT, SW y Otsopack</h3>
+				<section id="frontpage">
+					<h1>La web semántica<br />de las cosas</h1>
 					<p>
 						<small>Creado por <a href="http://aitor.gomezgoiri.net">Aitor Gómez-Goiri</a> / <a href="http://twitter.com/gomezgoiri">@gomezgoiri</a></small>
 					</p>
+					<img style="border: 0; box-shadow: none; margin: 50px 0 0 0;" src="images/logo_plain.png" alt="Logo of the University of Deusto">
+					<br />
+					<p>
+						<small>Universidad de Deusto <br/>
+						<a href="http://www.deusto.es">www.deusto.es</a>
+					</small>
 				</section>
 
 				<section>
@@ -196,6 +201,9 @@
 				progress: true,
 				history: true,
 				center: true,
+				
+				// Apply a 3D roll to links on hover
+				rollingLinks: false,
 
 				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none

@@ -34,7 +34,7 @@
 	<body>
 		<div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
+			<!-- Antes de esta charla, hablaría de LOD y lo tuyo de semántica, para que les suene qué es la semántica y no tener que ponerte aquí a explicarlo -->
 			<div class="slides">
 
 				<section>
@@ -66,7 +66,7 @@
 					</aside>
 				</section>
 
-				<!-- Example of nested vertical slides -->
+				<!-- Yo entre medias metería la parte de Juan López de Armentia -->
 				<section>
 					<section>
 						<h2>Características de IoT</h2>
@@ -121,21 +121,51 @@
 				</section>
 
 				<section>
-					<h2>Themes</h2>
-					<p>
-						Reveal.js comes with a few themes built in: <br>
-						<a href="?theme=sky#/themes">Sky</a> -
-						<a href="?theme=beige#/themes">Beige</a> -
-						<a href="?theme=simple#/themes">Simple</a> -
-						<a href="?theme=serif#/themes">Serif</a> -
-						<a href="?theme=night#/themes">Night</a> -
-						<a href="?#/themes">Default</a>
-					</p>
-					<p>
-						<small>
-							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
-						</small>
-					</p>
+					<section>
+						<h2>Web of Things</h2>
+					</section>
+
+					<section>
+						<h2>Enfoques principales de integración en IoT</h2>
+						<ol>
+							<li class="fragment">Orientado a servicios: Device Profile for Web Services (DPWS)</li>
+							<li class="fragment">Orientado a recursos: Web of Things (WoT)</li>
+						</ol>
+						<aside class="notes">
+							Abstrayendonos de los protocolos de red y asumimos conectividad IP...
+							
+							DPWS: SOAP adaptado a dispositivos con capacidades limitadas
+							WoT: REST adaptado a dispositivos con capacidades limitados
+						</aside>
+					</section>
+
+					<section>
+						<h2>WoT: IoT orientado a recursos</h2>
+						<p>¿Por qué no hacer que esos dispositivos formen parte de la WWW?</p>
+						<ol>
+							<li class="fragment">Usar estándares bien establecidos: HTTP, JSON, etc.</li>
+							<li class="fragment">Sencillo de adoptar por parte de desarrolladores web \cite{guinard_search_2011}</li>
+							<li class="fragment">Integración directa con otros servicios REST</li>
+							<li class="fragment">Navegable por parte de los usuarios</li>
+						</ol>
+						<aside class="notes">
+							Uso de estándares bien establecidos: existen también de librerias y herramientas para ellos
+							Poner ejemplos que se quieran: entrar en paraimpu o cualquier otro editor de mashups
+						</aside>
+					</section>
+					
+					<section>
+						<h2>Problemas de WoT</h2>
+						<p>¿Por qué no hacer que esos dispositivos formen parte de la WWW?</p>
+						<ol>
+							<li class="fragment">Muchas veces sólo están orientados a su consumo por parte de humanos</li>
+							<li class="fragment">Este es un problema que se ha dado en la WWW, y que ya tiene una solución...</li>
+							<li class="fragment">¿Y si usamos datos anotados como propone la Web Semántica?</li>
+						</ol>
+						<aside class="notes">
+							Existe negociación de datos en HTTP, pero más allá del formato en el que se describen esos datos, el esquema varía.
+						</aside>
+					</section>
 				</section>
 
 				<section>

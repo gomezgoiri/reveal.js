@@ -26,9 +26,9 @@ $colsch5: #213875;
 $collink: #505f8a;
 
 $mainColor: #333;
-$mainFont: 'Lato', sans-serif;
+$mainFont: "Lato", sans-serif;
 $headingColor: $deustoColor;
-$headingFont: 'Francois One', Impact, sans-serif;
+$headingFont: "Francois One", Impact, sans-serif;
 $headingTextShadow: none;
 $backgroundColor: #fff;
 $linkColor: $collink;
@@ -46,6 +46,10 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
   font-weight: bold;
 }
 
+.reveal h1 {
+  font-size: 90px;
+}
+
 .reveal h2 {
   margin: 0 0 50px 0;
 }
@@ -53,4 +57,8 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
 .reveal .emph {
   color: $colsch2;
   font-weight: bold;
+}
+
+.roll {
+  
 }

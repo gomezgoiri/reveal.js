@@ -1,7 +1,9 @@
 /**
- * Beige theme for reveal.js.
+ * Deusto theme for reveal.js.
  * 
- * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ * Copyright (C) 2012 Aitor Gómez Goiri, http://aitor.gomezgoiri.net
+ * 
+ * sass --watch deusto.scss:../deusto.css
  */
 
 
@@ -57,6 +59,11 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
 .reveal .emph {
   color: $colsch2;
   font-weight: bold;
+}
+
+.reveal section img {
+  border: 0;
+  box-shadow: none;
 }
 
 #presentable-toc ol>li ol {

@@ -1,9 +1,12 @@
+@charset "UTF-8";
 @import url(http://fonts.googleapis.com/css?family=Francois+One);
 @import url(http://fonts.googleapis.com/css?family=Lato:400,900);
 /**
- * Beige theme for reveal.js.
+ * Deusto theme for reveal.js.
  * 
- * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ * Copyright (C) 2012 Aitor Gómez Goiri, http://aitor.gomezgoiri.net
+ * 
+ * sass --watch deusto.scss:../deusto.css
  */
 /*********************************************
  * GLOBAL STYLES
@@ -142,6 +145,10 @@ body {
 .reveal .emph {
   color: #375dc2;
   font-weight: bold; }
+
+.reveal section img {
+  border: 0;
+  box-shadow: none; }
 
 #presentable-toc ol > li ol {
   visibility: hidden;

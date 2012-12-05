@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>La web semántica de las cosas</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -200,7 +200,9 @@
 						</aside>
 					</section>
 
-					<!-- ¿alguna imagen? -->
+					<section>
+						<img src="images/ts_diagram/conceptual.png" alt="Triple space computing example" style="text-align: center; width: 100%;" />
+					</section>
 
 					<section>
 						<h2>Ventajas</h2>
@@ -250,9 +252,7 @@
 							<li>2 applicaciones que usen ontologias estándar y el mismo espacio, pueden interactuar a través del espacio transparentemente.</li>
 						</ul>
 						<aside class="notes">
-							<ul>
-								<p>De forma transparente: sin que una aplicación fuese diseñada para proveer de datos a la otra.</p>
-							</ul>
+							<p>De forma transparente: sin que una aplicación fuese diseñada para proveer de datos a la otra.</p>
 						</aside>
 					</section>
 
@@ -265,6 +265,7 @@
 				<section>
 					<section>
 						<h2>Otsopack</h2>
+						<p><a href="https://github.com/gomezgoiri/otsopack">https://github.com/gomezgoiri/otsopack</a></p>
 					</section>
 
 					<section>
@@ -274,12 +275,102 @@
 						<div class="emph fragment grow" style="float: left; margin: 40px 0 0 15%; width: 20%;">completamente distribuida</div>
 						<div class="emph fragment grow" style="float: right; margin: 10px 15% 0 0; width: 20%;">compatible con WoT</div>
 					</section>
+
+					<section>
+						<h2>Distribución de la información</h2>
+						<img src="images/ts_diagram/real.png" alt="Fully distributed" style="text-align: center; width: 100%;" />
+						<div><span class="cite">gomez-goiri_assessing_2012</span></div>
+						<aside class="notes">
+							<p>Completamente distribuido.</p>
+							<p>Implementación básica: Negative broadcasting. Escritura local, consultas propagadas a todos los nodos.</p>
+							<p>Aitor se encuentra trabajando en otras estrategias más sofisticadas.</p>
+						</aside>
+					</section>
+					
+					<section>
+						<h2>Sobre la descentralización</h2>
+						<ul>
+							<li class="fragment highlight-green"><span style="color: black;">El usuario puede <span class="emph">llevar</span> su información de perfil de un lugar a otro</span></li>
+							<li class="fragment highlight-green"><span style="color: black;">Los datos provistos por los sensores se actualizan constantemente, por lo que interrogandoles directamente accederemos a los ultimos</span></li>
+							<li class="fragment highlight-red"><span style="color: black;">La web semantica añade sobrecargas</span></li>
+							<li class="fragment highlight-red"><span style="color: black;">Seguridad</span></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Módulos de Otsopack</h2>
+						<img src="images/otsopack/layers/conceptualSchema.png" alt="Otsopack's modules" style="float:left; width: 50%;" />
+						<p style="float:right; width: 45%; margin: 50px 0 0 5%; text-align:center;">(cada instancia de Otsopack)</p>
+					</section>
+
+					<section>
+						<h2>API TS</h2>
+						<img src="images/otsopack/layers/conceptualSchema_api.png" alt="Otsopack's TS API" style="float:left; width: 50%;" />
+						<p style="float:right; width: 45%; margin: 50px 0 0 5%; text-align:center;">Los desarrolladores que usan nuestro middleware usan las <span class="emph">primitivas</span> de <a href="http://otsopack.readthedocs.org/en/latest/restservices.html#triple-space-primitives">escritura y lectura</a>.</p>
+					</section>
+
+					<section>
+						<h2>Acceso a datos</h2>
+						<img src="images/otsopack/layers/conceptualSchema_da.png" alt="Otsopack's data access layer" style="float:left; width: 50%;" />
+						<p style="float:right; width: 45%; margin: 50px 0 0 5%; text-align:center;">Para <span class="emph">almacenar</span> conocimiento y <span class="emph">razonar</span> sobre él.</p>
+						<aside class="notes">
+							<p>En consecuencia, la cantidad de peticiones que pueden ser respondidas incrementa incluso si no se considero en fase de diseño.</p>
+							<p>Por ejemplo, si un sensor define que la luz de la cocina está encendida, y la ontología define que la cocina está cerca del salón y que la luz es un sensor, un consumidor potencial podría preguntar por aquellos sensores cercanos al salón.</p>
+						</aside>
+					</section>
+
+					<section>
+						<h2>Comunicaciones</h2>
+						<img src="images/otsopack/layers/conceptualSchema_coco.png" alt="Otsopack's network layer" style="float:left; width: 50%;" />
+						<div style="float:right; width: 45%; margin: 50px 0 0 5%; text-align:center;">
+							<ul>
+								<li><span class="emph">Descubre</span> nuevos nodos</li>
+								<li><span class="emph">Consume</span> el API HTTP de otros nodos</li>
+							</ul>
+						</div>
+						<aside class="notes">
+							<p>El descubrimiento no es nuestro foco de atención principal.</p>
+							<p>Tenemos <span class="emph">nuestro propio sistema</span> de descubrimiento basado en Registries, pero queremos implementar uno basado en estándares como <span class="emph">mDNS</span>.</p>
+						</aside>
+					</section>
+
+					<section>
+						<h2>Sobre TSC y HTTP</h2>
+						<p>Los <span class="emph">verbos HTTP</span> devuelven, crean, modifican o eliminan <span class="emph">recursos web</span></p>
+						<p>Las <span class="emph">primitivas TS</span> devuelven, crean, modifican o eliminan <span class="emph">grafos RDF</span> de un espacio</p>
+						<small>(de acuerdo, para ser completamente honestos también ofrecemos una primitiva  <span style="font-style:italic;">query</span>, que trabaja a nivel de espacio)</small>
+					</section>
+
+					<section>
+						<h2>Un API HTTP RESTful</h2>
+						<ul>
+							<li>Para exponer las <a href="https://otsopack.readthedocs.org/en/latest/restservices.html#triple-space-primitives">primitivas TS</a></li>
+							<li>Usa HTTP <span class="emph">status codes</span></li>
+							<li>Usa <span class="emph">content negotiation</span></li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Con ello facilitamos su adopción por parte de múltiples plataformas</h3>
+						<small>(XBee, FoxG20, móviles Android y ordenadores de todo tipo)</small>
+						<div><span class="cite">gomez-goiri_restful_2012</span></div>
+					</section>
+					<!-- Incluir cita a WoT2012 con evaluación -->
 				</section>
 
-				
+				<section>
+					<h2>Lecciones aprendidas</h2>
+					<ul>
+						<li>En pequeños escenarios parece <span class="emph">complejo usar semántica</span>, pero los beneficios de describir los datos ricamente se ven en el <span class="emph">largo plazo</span>, en la medida en la que más aplicaciones comparten y explotan información mutua.</li>
+						<li>El desarrollador se abstrae de acceder a distintos dispositivos, y sólo <span class="emph">se preocupa de los datos</span> compartidos en el espacio conceptual.</li>
+						<li>También se puede <span class="emph">navegar</span> por la información de cualquier dispositivo como en cualquier otra solución <span class="emph">WoT</span>.</li>
+						<li>Además, la información de cada dispositivo se puede <span class="emph">consumir</span> por <span class="emph">aplicaciones web externas</span> al middleware.</li>
+					</ul>
+				</section>
+
 				<section>
 					<h1>Preguntas</h1>
-					<h3>(también se aceptan en aitor [en] gomezgoiri.net)</h3>
+					<h4>(también se aceptan en aitor [en] gomezgoiri.net)</h4>
 				</section>
 
 
@@ -324,24 +415,90 @@
 		</script>
 
 		<div id="citations">
-			<div id="francisco_towards_2008">
-			David Francisco, Lyndon&nbsp;JB Nixon, and Germán Toro&nbsp;del Valle.
-		      Towards a multimedia content marketplace implementation based on
-			triplespaces.
-		      In Amit Sheth, Steffen Staab, Mike Dean, Massimo Paolucci, Diana
-			Maynard, Timothy Finin, and Krishnaprasad Thirunarayan, editors,
-			<em>
-			  The
-			Semantic Web - ISWC 2008
-			</em>
-			, volume 5318, pages 875-888. Springer Berlin
-			Heidelberg, Berlin, Heidelberg, 2008.
+			<div id="semanticWeb-FAQ">
+			World Wide&nbsp;Web Consortium.
+		      W3c semantic web faq, August 2011.
 		      [&nbsp;
-			<a href="citations_bib.html#francisco_towards_2008">
+			<a href="citations_bib.html#semanticWeb-FAQ">
 			  bib
 			</a>
 			&nbsp;|
-			<a href="http://www.springerlink.com/content/r33h107821q44x5k/">
+			<a href="http://www.w3.org/2001/sw/SW-FAQ">
+			  http
+			</a>
+			&nbsp;]
+			</div>  <div id="walewski_project_2011">
+			Joachim&nbsp;W. Walewski, Martin Bauer, Nicola Bui, Pierpaolo Giacomin, Nils
+			Gruschka, Stephan Haller, Edward Ho, Ralf Kernchen, Mario Lischka, Jourik
+			De&nbsp;Loof, Carsten Magerkurth, Stefan Meissner, Sonja Meyer, Andreas
+			Nettstrater, Francisco Oteiza&nbsp;Lacalle, Alexander Salinas&nbsp;Segura, Alexandru
+			Serbanati, Martin Strohbach, and Vicent Toubiana.
+		      Project deliverable d1.2 – initial architectural reference model
+			for IoT, June 2011.
+		      [&nbsp;
+			<a href="citations_bib.html#walewski_project_2011">
+			  bib
+			</a>
+			&nbsp;|
+			<a href="http://www.iot-a.eu/public/public-documents/documents-1/1/1/d1.2/at_download/file">
+			  http
+			</a>
+			&nbsp;]
+			</div>  <div id="guinard_search_2011">
+			Dominique Guinard, Iulia Ion, and Simon Mayer.
+		      In search of an internet of things service architecture: REST or
+			WS-*? a developers’ perspective.
+		      In
+			<em>
+			  Proceedings of Mobiquitous 2011 (8th International ICST
+			Conference on Mobile and Ubiquitous Systems)
+			</em>
+			, Copenhagen, Denmark, December
+			2011.
+		      [&nbsp;
+			<a href="citations_bib.html#guinard_search_2011">
+			  bib
+			</a>
+			&nbsp;]
+			</div>  <div id="gomez-goiri_assessing_2012">
+			A.&nbsp;Gomez-Goiri and D.&nbsp;Lopez-de Ipina.
+		      Assessing data dissemination strategies within triple spaces on the
+			web of things.
+		      In
+			<em>
+			  2012 Sixth International Conference on Innovative Mobile and
+			Internet Services in Ubiquitous Computing (IMIS)
+			</em>
+			, pages 763 -769, July
+			2012.
+		      [&nbsp;
+			<a href="citations_bib.html#gomez-goiri_assessing_2012">
+			  bib
+			</a>
+			&nbsp;|
+			<a href="http://dx.doi.org/10.1109/IMIS.2012.120">
+			  DOI
+			</a>
+			&nbsp;]
+			</div>  <div id="gomez-goiri_restful_2012">
+			Aitor Gómez-Goiri, Pablo Orduña, and Diego López-de Ipiña.
+		      RESTful triple spaces of things.
+		      In
+			<em>
+			  Proceedings of the Third International Workshop on the Web of
+			Things
+			</em>
+			, WOT '12, page 5:1–5:6, New York, NY, USA, 2012. ACM.
+		      [&nbsp;
+			<a href="citations_bib.html#gomez-goiri_restful_2012">
+			  bib
+			</a>
+			&nbsp;|
+			<a href="http://dx.doi.org/10.1145/2379756.2379761">
+			  DOI
+			</a>
+			&nbsp;|
+			<a href="http://doi.acm.org/10.1145/2379756.2379761">
 			  http
 			</a>
 			&nbsp;]
@@ -370,52 +527,29 @@
 			  http
 			</a>
 			&nbsp;]
-			</div>  <div id="walewski_project_2011">
-			Joachim&nbsp;W. Walewski, Martin Bauer, Nicola Bui, Pierpaolo Giacomin, Nils
-			Gruschka, Stephan Haller, Edward Ho, Ralf Kernchen, Mario Lischka, Jourik
-			De&nbsp;Loof, Carsten Magerkurth, Stefan Meissner, Sonja Meyer, Andreas
-			Nettstrater, Francisco Oteiza&nbsp;Lacalle, Alexander Salinas&nbsp;Segura, Alexandru
-			Serbanati, Martin Strohbach, and Vicent Toubiana.
-		      Project deliverable d1.2 – initial architectural reference model
-			for IoT, June 2011.
-		      [&nbsp;
-			<a href="citations_bib.html#walewski_project_2011">
-			  bib
-			</a>
-			&nbsp;|
-			<a href="http://www.iot-a.eu/public/public-documents/documents-1/1/1/d1.2/at_download/file">
-			  http
-			</a>
-			&nbsp;]
-			</div>  <div id="semanticWeb-FAQ">
-			World Wide&nbsp;Web Consortium.
-		      W3c semantic web faq, August 2011.
-		      [&nbsp;
-			<a href="citations_bib.html#semanticWeb-FAQ">
-			  bib
-			</a>
-			&nbsp;|
-			<a href="http://www.w3.org/2001/sw/SW-FAQ">
-			  http
-			</a>
-			&nbsp;]
-			</div>  <div id="guinard_search_2011">
-			Dominique Guinard, Iulia Ion, and Simon Mayer.
-		      In search of an internet of things service architecture: REST or
-			WS-*? a developers’ perspective.
-		      In
+			</div>  <div id="francisco_towards_2008">
+			David Francisco, Lyndon&nbsp;JB Nixon, and Germán Toro&nbsp;del Valle.
+		      Towards a multimedia content marketplace implementation based on
+			triplespaces.
+		      In Amit Sheth, Steffen Staab, Mike Dean, Massimo Paolucci, Diana
+			Maynard, Timothy Finin, and Krishnaprasad Thirunarayan, editors,
 			<em>
-			  Proceedings of Mobiquitous 2011 (8th International ICST
-			Conference on Mobile and Ubiquitous Systems)
+			  The
+			Semantic Web - ISWC 2008
 			</em>
-			, Copenhagen, Denmark, December
-			2011.
+			, volume 5318, pages 875-888. Springer Berlin
+			Heidelberg, Berlin, Heidelberg, 2008.
 		      [&nbsp;
-			<a href="citations_bib.html#guinard_search_2011">
+			<a href="citations_bib.html#francisco_towards_2008">
 			  bib
+			</a>
+			&nbsp;|
+			<a href="http://www.springerlink.com/content/r33h107821q44x5k/">
+			  http
 			</a>
 			&nbsp;]
 			</div>
+		      </div>
 		</div>
 
 		
